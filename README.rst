@@ -2,7 +2,7 @@ DRF kafka logger
 =========================================
 
 
-DRF-kafka-logger is a app to generate logger in kafka consumer.
+drf-kafka-logger is a app to generate logger in kafka consumer.
 
 
 Quick start
@@ -34,4 +34,18 @@ Quick start
 
 
 
-3. Run ``python manage.py migrate`` to create the drf_cas_jwt models.
+3. Run ``python manage.py migrate`` to create the drf-kafka-logger models.
+
+4 <OPTIONAL> Tasks to clean log::
+
+    from kafka_logger.tasks import remove_log_error_tasks, remove_log_success_tasks
+
+    # In this example, it will delete logs with status success from the previous day
+    remove_log_success_tasks(days=1)
+
+    # In this example, it will delete logs with status error from the previous day
+    remove_log_error_tasks(days=1)
+
+    # I recommend using djangoQ Schedule
+    # kafka_logger.tasks.remove_log_error_tasks
+    # kafka_logger.tasks.remove_log_success_tasks
