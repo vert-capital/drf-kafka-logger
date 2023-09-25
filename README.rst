@@ -21,7 +21,7 @@ Quick start
 
     # Init log
     logger = KafkaLogger()
-    logger.init()
+    logger.init(Model)
 
     # Set data
     logger.set_data(data:dict)
@@ -30,7 +30,7 @@ Quick start
     logger.success()
 
     # If error
-    logger.error(error_message:str)
+    logger.error(message_error:str)
 
 
 
