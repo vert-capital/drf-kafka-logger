@@ -15,6 +15,7 @@ class KafkaLogAdmin(admin.ModelAdmin):
     search_fields = ["date"]
     list_filter = ["status", "content_type"]
     ordering = ["date", "status"]
+    raw_id_fields = ["content_type"]
 
     def has_add_permission(self, request):
         return False
