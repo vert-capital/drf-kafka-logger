@@ -5,7 +5,7 @@ from setuptools import find_packages, setup
 if sys.version_info < (3, 6):
     raise Exception("Only Python 3.6+ is supported")
 
-with open("README.md", "r") as fh:
+with open("README.rst", "r") as fh:
     long_description = fh.read()
 
 setup(
