@@ -12,8 +12,8 @@ from pygments.lexers import JsonLexer
 class KafkaLogAdmin(admin.ModelAdmin):
     list_display = ["date", "content_type", "status"]
     list_display_links = ["date"]
-    search_fields = ["date"]
-    list_filter = ["status", "content_type"]
+    search_fields = ["date", "content_type"]
+    list_filter = ["status",]
     ordering = ["date", "status"]
     raw_id_fields = ["content_type"]
 
