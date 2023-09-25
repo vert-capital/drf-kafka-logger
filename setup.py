@@ -21,7 +21,7 @@ setup(
         exclude=["ez_setup", "examples", "tests", "release"]),
     install_requires=[
         "Django>=2.0",
-        "vert-capital/django_kafka",
+        "django_kafka @ git+https://github.com/vert-capital/django_kafka",
     ],
     include_package_data=True,
     zip_safe=False,
