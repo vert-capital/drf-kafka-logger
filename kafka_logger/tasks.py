@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 
-from apps.kafka_logger.models import Log
+from .models import Log
 
 
 def remove_log_error_tasks(days=15):

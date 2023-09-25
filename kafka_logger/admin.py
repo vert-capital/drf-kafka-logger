@@ -1,6 +1,6 @@
 import json
 
-from apps.kafka_logger.models import Log
+from .models import Log
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 from pygments import highlight
