@@ -24,7 +24,7 @@ Quick start
     logger.init()
 
     # Set data
-    logger.data(data:dict)
+    logger.set_data(data:dict)
 
     # If success
     logger.success()
