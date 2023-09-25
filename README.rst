@@ -36,7 +36,7 @@ Quick start
 
 3. Run ``python manage.py migrate`` to create the drf-kafka-logger models.
 
-4 <OPTIONAL> Tasks to clean log::
+4. <OPTIONAL> Tasks to clean log::
 
     from kafka_logger.tasks import remove_log_error_tasks, remove_log_success_tasks
 
