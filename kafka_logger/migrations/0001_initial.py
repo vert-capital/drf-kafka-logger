@@ -45,8 +45,7 @@ class Migration(migrations.Migration):
                         blank=True, null=True, verbose_name="Dados recebido"
                     ),
                 ),
-                ("error", models.TextField(blank=True, null=True,
-                                           verbose_name="Erro")),
+                ("error", models.TextField(blank=True, null=True, verbose_name="Erro")),
                 (
                     "created_at",
                     models.DateTimeField(

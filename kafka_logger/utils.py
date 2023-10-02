@@ -1,3 +1,5 @@
+from django.contrib.contenttypes.models import ContentType
+
 from .models import Log
 
 
@@ -6,9 +8,11 @@ class KafkaLogger:
         self.object: Log = None
 
     def init(self, Model):
+        obj = Model()
+        content_type = ContentType.objects.get_for_model(obj)
         self.object = Log.objects.create(
             status=Log.IN_PROGRESS,
-            content_type=Model().content_type,
+            content_type=content_type,
         )
 
     def set_data(self, data: dict):

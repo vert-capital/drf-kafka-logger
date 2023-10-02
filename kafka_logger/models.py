@@ -1,7 +1,7 @@
 from uuid import uuid4 as guid
 
-from django.contrib.contenttypes.models import ContentType
 from django.db import models
+from django.contrib.contenttypes.models import ContentType
 
 
 class Log(models.Model):
@@ -17,25 +17,14 @@ class Log(models.Model):
     content_type = models.ForeignKey(
         ContentType, on_delete=models.PROTECT, blank=True, null=True
     )
-    date = models.DateTimeField(
-        verbose_name="Data da operação",
-        auto_now_add=True)
+    date = models.DateTimeField(verbose_name="Data da operação", auto_now_add=True)
     status = models.CharField(
         verbose_name="Status", choices=STATUS_CHOICES, max_length=11
     )
-    data = models.JSONField(
-        verbose_name="Dados recebido",
-        null=True,
-        blank=True
-    )
-    error = models.TextField(
-        verbose_name="Erro",
-        null=True,
-        blank=True)
-    created_at = models.DateTimeField(
-        verbose_name="Data de criação", auto_now_add=True)
-    updated_at = models.DateTimeField(
-        verbose_name="Data de atuaização", auto_now=True)
+    data = models.JSONField(verbose_name="Dados recebido", null=True, blank=True)
+    error = models.TextField(verbose_name="Erro", null=True, blank=True)
+    created_at = models.DateTimeField(verbose_name="Data de criação", auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name="Data de atuaização", auto_now=True)
 
     class Meta:
         verbose_name = "Log do kafka"

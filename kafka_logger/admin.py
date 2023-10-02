@@ -1,11 +1,12 @@
 import json
 
-from .models import Log
-from django.contrib import admin
-from django.utils.safestring import mark_safe
 from pygments import highlight
-from pygments.formatters import HtmlFormatter
+from django.contrib import admin
 from pygments.lexers import JsonLexer
+from pygments.formatters import HtmlFormatter
+from django.utils.safestring import mark_safe
+
+from .models import Log
 
 
 @admin.register(Log)
@@ -13,8 +14,10 @@ class KafkaLogAdmin(admin.ModelAdmin):
     list_display = ["date", "content_type", "status"]
     list_display_links = ["date"]
     search_fields = ["date", "content_type"]
-    list_filter = ["status",]
-    ordering = ["date", "status"]
+    list_filter = [
+        "status",
+    ]
+    ordering = ["-date"]
     raw_id_fields = ["content_type"]
 
     def has_add_permission(self, request):
@@ -29,8 +32,7 @@ class KafkaLogAdmin(admin.ModelAdmin):
     def data_prettified(self, instance):
         """Function to display pretty version of our data"""
         # Convert the data to sorted, indented JSON
-        response = json.dumps(instance.data, sort_keys=True, indent=2,
-                              default=str)
+        response = json.dumps(instance.data, sort_keys=True, indent=2, default=str)
 
         # Truncate the data. Alter as needed
         # response = response[:5000]
