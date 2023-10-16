@@ -38,14 +38,13 @@ Quick start
 
 4. <OPTIONAL> Tasks to clean log::
 
-    from kafka_logger.tasks import remove_log_error_tasks, remove_log_success_tasks
+    from kafka_logger.tasks import remove_generic_status
 
     # In this example, it will delete logs with status success from the previous day
-    remove_log_success_tasks(days=1)
+    remove_generic_status(days=1, status="success")
 
     # In this example, it will delete logs with status error from the previous day
-    remove_log_error_tasks(days=1)
+    remove_generic_status(days=1, status="failed)
 
     # I recommend using djangoQ Schedule
-    # kafka_logger.tasks.remove_log_error_tasks
-    # kafka_logger.tasks.remove_log_success_tasks
+    # kafka_logger.tasks.remove_generic_status

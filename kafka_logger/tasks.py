@@ -3,19 +3,10 @@ from datetime import datetime, timedelta
 from .models import Log
 
 
-def remove_log_error_tasks(days=15):
+def remove_generic_status(days=1, status="success"):
     date = datetime.now() - timedelta(days=days)
-    logs = Log.objects.filter(date__lte=date, status=Log.FAILED)
+    logs = Log.objects.filter(date__lte=date, status=status)
     deleted_quantity = logs.count()
     for log in logs:
         log.delete()
-    print(f"Foi deletado {deleted_quantity} logs")
-
-
-def remove_log_success_tasks(days=1):
-    date = datetime.now() - timedelta(days=days)
-    logs = Log.objects.filter(date__lte=date, status=Log.SUCCESS)
-    deleted_quantity = logs.count()
-    for log in logs:
-        log.delete()
-    print(f"Foi deletado {deleted_quantity} logs que deram certo")
+    print(f"Foi deletado {deleted_quantity} logs do status", status)
