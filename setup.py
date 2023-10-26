@@ -10,7 +10,7 @@ with open("README.rst", "r") as fh:
 
 setup(
     name="drf_kafka_logger",
-    version="1.0.1",
+    version="1.0.3",
     author="VertCapital",
     author_email="caiofaria@vert-capital.com",
     description="Logger to consumer kafka",
